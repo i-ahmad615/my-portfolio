@@ -18,7 +18,7 @@ This is a modern, animated portfolio website built with **Next.js**, **Framer Mo
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-portfolio-repo.git
+git clone https://github.com/i-ahmad615/my-portfolio
 cd your-portfolio-repo/my-app
 ```
 
@@ -70,13 +70,3 @@ Feel free to:
 I built this project for the community, so you can take inspiration, learn from the code, or clone it for your own portfolio. No attribution required, but a star or mention is appreciated!
 
 ---
-
-<<<<<<< HEAD
-**Happy coding!**
-=======
-<<<<<<< HEAD
-**Happy coding!**
-=======
-**Happy coding!** 
->>>>>>> 104e240 (Initial commit: Animated Portfolio Website)
->>>>>>> 68c47d6 (Initial commit)
