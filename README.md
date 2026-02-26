@@ -24,7 +24,7 @@ cd your-portfolio-repo/my-app
 
 ### 2. Install Dependencies
 
-This project uses [pnpm](https://pnpm.io/) for fast installs, but you can use npm or yarn as well.
+This project uses npm for fast installs, but you can use pnpm or yarn as well.
 
 ```bash
 pnpm install
@@ -68,5 +68,4 @@ Feel free to:
 ## Inspiration & License
 
 I built this project for the community, so you can take inspiration, learn from the code, or clone it for your own portfolio. No attribution required, but a star or mention is appreciated!
-
 ---
