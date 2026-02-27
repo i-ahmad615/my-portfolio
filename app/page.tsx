@@ -350,9 +350,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
           >
-            <span className="shiny-text">Ahmad</span>
-            <br />
-            <span className="shiny-text">Sharjeel</span>
+            <span className="shiny-text">Ahmad Sharjeel</span>
           </motion.h1>
           <p className="hero-subtitle text-base sm:text-xl md:text-2xl font-bold tracking-wide text-gray-300 mb-3">
             Agentic AI & Full Stack Developer
