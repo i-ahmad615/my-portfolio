@@ -1,0 +1,50 @@
+[
+  {
+    "question": "Who is Ahmad Sharjeel?",
+    "answer": "Ahmad Sharjeel is a Computer Science student at Lahore Garrison University and an AI Engineer Intern with experience in AI, cybersecurity automation, Python development, and full-stack web applications."
+  },
+  {
+    "question": "What technologies does Ahmad specialize in?",
+    "answer": "Ahmad primarily works with Python, FastAPI, Next.js, React, TypeScript, Tailwind CSS, SQL, SQLite, OpenAI APIs, Google Gemini, n8n automation, and cybersecurity tools."
+  },
+  {
+    "question": "What is Ahmad currently working on?",
+    "answer": "Ahmad is focused on AI engineering, intelligent automation, cybersecurity solutions, and developing AI-powered applications that solve real-world business problems."
+  },
+  {
+    "question": "Has Ahmad completed an internship?",
+    "answer": "Yes. Ahmad completed an AI Engineer Internship at Century Paper & Board Mills (CPBM), where he worked on cybersecurity automation and AI-driven network monitoring solutions."
+  },
+  {
+    "question": "What was Ahmad's firewall automation project?",
+    "answer": "The project automated cybersecurity incident response by monitoring security alert emails, validating attack information, and automatically blocking malicious IP addresses through Sophos Firewall integration."
+  },
+  {
+    "question": "What certifications does Ahmad have?",
+    "answer": "Ahmad has earned multiple professional certifications, including the Google AI Professional Certificate, demonstrating practical knowledge of AI technologies and modern development workflows."
+  },
+  {
+    "question": "Can I view Ahmad's resume?",
+    "answer": "Yes. You can download Ahmad's latest resume directly from the portfolio website using the Resume or CV section."
+  },
+  {
+    "question": "Can I contact Ahmad for freelance or professional opportunities?",
+    "answer": "Yes. You can reach Ahmad through the contact form, email, or LinkedIn information provided in the Contact section of the portfolio."
+  },
+  {
+    "question": "Is this AI assistant ChatGPT?",
+    "answer": "No. This assistant is a custom AI built specifically for Ahmad Sharjeel's portfolio. Its purpose is to answer questions about Ahmad's professional profile, projects, skills, experience, and achievements."
+  },
+  {
+    "question": "What can I ask this assistant?",
+    "answer": "You can ask about Ahmad's projects, technical skills, internship experience, education, certifications, technologies, career interests, and other information available in his public portfolio."
+  },
+  {
+    "question": "Can this assistant answer general knowledge questions?",
+    "answer": "No. This assistant is designed specifically to answer questions related to Ahmad Sharjeel and his professional portfolio. For unrelated topics, it will politely let you know that they are outside its scope."
+  },
+  {
+    "question": "Does the assistant make up information?",
+    "answer": "No. The assistant is designed to answer only using Ahmad's portfolio information. If something is not available, it will clearly say that it does not have that information."
+  }
+]

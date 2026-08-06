@@ -1,0 +1,41 @@
+{
+  "name": "Ahmad Sharjeel",
+  "title": "Agentic AI & Full Stack Developer",
+  "tagline": "Creative Developer & Designer",
+  "motivationalQuotes": [
+    "Enjoy your stay!",
+    "Let's build something cool",
+    "I debug by yelling at my screen",
+    "Professional Tea Lover",
+    "I turn caffeine into code",
+    "My code works... on my machine",
+    "I write bugs, then fix them for a living",
+    "Stack Overflow is my best friend",
+    "I'm a ctrl C + ctrl V Engineer",
+    "I can explain it to you, but I can't understand it for you",
+    "I use dark mode even in daylight",
+    "I break things just to fix them",
+    "I'm not lazy, I'm on energy-saving mode"
+  ],
+  "aboutParagraphs": [
+    "I'm a passionate creative developer who loves crafting digital experiences that push boundaries and inspire users.",
+    "With expertise in modern web technologies, I specialize in creating immersive, interactive websites that tell stories and engage audiences through motion and design."
+  ],
+  "profileImage": "/profile.png",
+  "cvUrl": "/cv.pdf",
+  "email": "ahmadsharjeel615@gmail.com",
+  "phone": "+92 326 0190421",
+  "location": "Lahore, Pakistan",
+  "social": {
+    "github": "https://github.com/i-ahmad615",
+    "linkedin": "https://www.linkedin.com/in/i-ahmad615",
+    "linkedinContact": "https://www.linkedin.com/in/i-ahmad615/",
+    "emailHref": "mailto:ahmadsharjeel615@gmail.com",
+    "whatsapp": "https://wa.me/923260190421?text=Hi%20Ahmad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%20with%20you!"
+  },
+  "quickStats": [
+    { "number": "10+", "label": "PROJECTS" },
+    { "number": "3+", "label": "CLIENTS" },
+    { "number": "1+", "label": "YRS EXP" }
+  ]
+}

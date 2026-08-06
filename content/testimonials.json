@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Muhammad Ibrahim",
+    "role": "Senior Web Developer, Noble Bit Systems",
+    "text": "Ahmad delivered an exceptional Shopify store that exceeded our expectations. His attention to detail and creative vision is unmatched. Rarely do you find a developer who combines technical skills with such a strong design sense.",
+    "rating": 5
+  },
+  {
+    "name": "Omer Saeed",
+    "role": "Lecturer, Department of Computer Science",
+    "text": "Ahmad has consistently stood out as one of the most hardworking and creative students in class. His ability to quickly grasp new technologies and apply them in real projects is commendable. I have no doubt he will make a strong mark in the industry.",
+    "rating": 4
+  },
+  {
+    "name": "Nauman Sajjad",
+    "role": "Regional Round Topper — Huawei ICT Global Competition",
+    "text": "Ahmad is one of the most dedicated and talented developers I have had the pleasure of studying alongside. His projects are always clean, well-structured, and impressive. He has a natural ability to turn complex ideas into working applications effortlessly.",
+    "rating": 5
+  }
+]

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, useLayoutEffect } from "react"
+import { useEffect, useRef, useState, useLayoutEffect, Fragment } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -9,20 +9,30 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Code,
-  Palette,
-  Zap,
-  Globe,
   Star,
-  Award,
-  Users,
-  Calendar,
   ArrowRight,
   ArrowLeft,
 } from "lucide-react"
 import Link from "next/link"
 import { AnimatePresence } from "framer-motion"
 import SplashCursor from "../components/SplashCursor";
+import ProjectsSection from "../components/Projects/ProjectsSection";
+import { iconMap } from "../lib/icon-map";
+import profile from "../content/profile.json";
+import projectsData from "../content/projects.json";
+import skillsData from "../content/skills.json";
+import experienceData from "../content/experience.json";
+import educationData from "../content/education.json";
+import certificationsData from "../content/certifications.json";
+import servicesData from "../content/services.json";
+import testimonialsData from "../content/testimonials.json";
+import type { Profile, Project, Skills, StatBlock, Service, Testimonial } from "../types/content";
+
+const typedProfile = profile as Profile;
+const typedProjects = projectsData as Project[];
+const typedSkills = skillsData as Skills;
+const typedServices = servicesData as Service[];
+const typedTestimonials = testimonialsData as Testimonial[];
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -34,7 +44,6 @@ export default function Portfolio() {
   const heroRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
-  const projectsRef = useRef<HTMLDivElement>(null)
   const [showHeader, setShowHeader] = useState(true);
   const lastScrollY = useRef(0);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -54,22 +63,7 @@ export default function Portfolio() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
-  const motivationalQuotes = [
-    "Hi, welcome to my profile",
-    "Enjoy your stay!",
-    "Let's build something cool",
-    "I debug by yelling at my screen",
-    "Professional Tea Lover",
-    "I turn caffeine into code",
-    "My code works... on my machine",
-    "I write bugs, then fix them for a living",
-    "Stack Overflow is my best friend",
-    "I'm a ctrl C + ctrl V Engineer",
-    "I can explain it to you, but I can't understand it for you",
-    "I use dark mode even in daylight",
-    "I break things just to fix them",
-    "I'm not lazy, I'm on energy-saving mode",
-  ];
+  const motivationalQuotes = typedProfile.motivationalQuotes;
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   useEffect(() => {
@@ -135,26 +129,6 @@ export default function Portfolio() {
           toggleActions: "play none none reverse",
         },
       })
-
-      // Projects scroll animation
-      gsap.fromTo(
-        ".project-card",
-        { y: 100, opacity: 0, scale: 0.8 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: ".projects-section",
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse",
-          },
-        },
-      )
 
       // Floating elements
       gsap.to(".floating-element", {
@@ -241,34 +215,10 @@ export default function Portfolio() {
   }, []);
 
   const [expTab, setExpTab] = useState(0);
-  const expTabs = [
-    {
-      title: "EXPERIENCE",
-      stats: [
-        { icon: Calendar, number: "1+", label: "YEARS EXPERIENCE" },
-        { icon: Code, number: "10+", label: "PROJECTS COMPLETED" },
-        { icon: Users, number: "3+", label: "HAPPY CLIENTS" },
-        { icon: Award, number: "1+", label: "AWARDS WON" },
-      ],
-    },
-    {
-      title: "EDUCATION",
-      stats: [
-        { icon: Calendar, number: "2027", label: "GRADUATION YEAR" },
-        { icon: Code, number: "BS", label: "COMPUTER SCIENCE" },
-        { icon: Users, number: "3.55", label: "GPA" },
-        { icon: Award, number: "2", label: "HONORS" },
-      ],
-    },
-    {
-      title: "CERTIFICATION",
-      stats: [
-        { icon: Award, number: "5+", label: "CERTIFICATES" },
-        { icon: Code, number: "5+", label: "ONLINE COURSES" },
-        { icon: Users, number: "10+", label: "SEMINARS ATTENDED" },
-        { icon: Calendar, number: "2026", label: "LAST UPDATED" },
-      ],
-    },
+  const expTabs: StatBlock[] = [
+    experienceData as StatBlock,
+    educationData as StatBlock,
+    certificationsData as StatBlock,
   ];
 
   return (
@@ -280,7 +230,7 @@ export default function Portfolio() {
         onMouseEnter={() => setShowHeader(true)}
       >
         <div className="flex items-center gap-2 md:gap-3">
-          <img src="/profile.png" alt="Logo" className="hidden md:block w-10 h-10 rounded-2xl object-cover" />
+          <img src={typedProfile.profileImage} alt="Logo" className="hidden md:block w-10 h-10 rounded-2xl object-cover" />
           <a href="#" className="font-bold italic text-sm md:text-2xl md:font-black tracking-tight text-white whitespace-nowrap">My Portfolio</a>
         </div>
         <nav className="hidden md:flex gap-6">
@@ -341,7 +291,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white/20 shadow-2xl ring-2 ring-purple-500/40">
-              <img src="/profile.png" alt="Ahmad Sharjeel" className="w-full h-full object-cover" />
+              <img src={typedProfile.profileImage} alt={typedProfile.name} className="w-full h-full object-cover" />
             </div>
           </motion.div>
           <motion.h1
@@ -350,10 +300,10 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
           >
-            <span className="shiny-text">Ahmad Sharjeel</span>
+            <span className="shiny-text">{typedProfile.name}</span>
           </motion.h1>
           <p className="hero-subtitle text-base sm:text-xl md:text-2xl font-bold tracking-wide text-gray-300 mb-3">
-            Agentic AI & Full Stack Developer
+            {typedProfile.title}
           </p>
           {/* Motivational Quote - above buttons */}
           <motion.div
@@ -390,31 +340,26 @@ export default function Portfolio() {
           {/* Social links + quick stats - mobile only */}
           <div className="flex md:hidden flex-col items-center gap-5">
             <div className="flex gap-6">
-              <motion.a href="https://github.com/i-ahmad615" className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
+              <motion.a href={typedProfile.social.github} className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
                 <Github size={26} />
               </motion.a>
-              <motion.a href="https://www.linkedin.com/in/i-ahmad615" className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
+              <motion.a href={typedProfile.social.linkedin} className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
                 <Linkedin size={26} />
               </motion.a>
-              <motion.a href="mailto:ahmadsharjeel615@gmail.com" className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
+              <motion.a href={typedProfile.social.emailHref} className="text-white/70 hover:text-white transition-colors" whileHover={{ scale: 1.2 }}>
                 <Mail size={26} />
               </motion.a>
             </div>
             <div className="flex gap-6 text-center">
-              <div>
-                <p className="text-xl font-black text-white">10+</p>
-                <p className="text-xs text-white/50 tracking-wide">PROJECTS</p>
-              </div>
-              <div className="w-px bg-white/20"></div>
-              <div>
-                <p className="text-xl font-black text-white">3+</p>
-                <p className="text-xs text-white/50 tracking-wide">CLIENTS</p>
-              </div>
-              <div className="w-px bg-white/20"></div>
-              <div>
-                <p className="text-xl font-black text-white">1+</p>
-                <p className="text-xs text-white/50 tracking-wide">YRS EXP</p>
-              </div>
+              {typedProfile.quickStats.map((stat, i) => (
+                <Fragment key={stat.label}>
+                  {i > 0 && <div className="w-px bg-white/20"></div>}
+                  <div>
+                    <p className="text-xl font-black text-white">{stat.number}</p>
+                    <p className="text-xs text-white/50 tracking-wide">{stat.label}</p>
+                  </div>
+                </Fragment>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -450,40 +395,44 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="about-text">
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-300 mb-8">
-                I'm a passionate creative developer who loves crafting digital experiences that push boundaries and
-                inspire users.
-              </p>
-              <p className="text-lg leading-relaxed text-gray-400 mb-8">
-                With expertise in modern web technologies, I specialize in creating immersive, interactive websites that
-                tell stories and engage audiences through motion and design.
-              </p>
+              {typedProfile.aboutParagraphs.map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  className={
+                    idx === 0
+                      ? "text-xl md:text-2xl leading-relaxed text-gray-300 mb-8"
+                      : "text-lg leading-relaxed text-gray-400 mb-8"
+                  }
+                >
+                  {paragraph}
+                </p>
+              ))}
               <div className="flex gap-6 mb-8">
                 <motion.a
-                  href="https://github.com/i-ahmad615"
+                  href={typedProfile.social.github}
                   className="text-white hover:text-purple-400 transition-colors"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Github size={32} />
                 </motion.a>
                 <motion.a
-                  href="https://www.linkedin.com/in/i-ahmad615"
+                  href={typedProfile.social.linkedin}
                   className="text-white hover:text-blue-400 transition-colors"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Linkedin size={32} />
                 </motion.a>
                 <motion.a
-                  href="mailto:ahmadsharjeel615@gmail.com"
+                  href={typedProfile.social.emailHref}
                   className="text-white hover:text-green-400 transition-colors"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Mail size={32} />
                 </motion.a>
-                
+
               </div>
               <a
-                href="/cv.pdf"
+                href={typedProfile.cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold shadow-md hover:from-purple-600 hover:to-blue-600 transition-colors text-lg mt-2"
@@ -505,7 +454,7 @@ export default function Portfolio() {
             >
               <div className="w-full max-w-[400px] mx-auto bg-gradient-to-br from-purple-600 to-blue-600 rounded-[2.5rem] flex items-center justify-center p-[4px]">
                 <div className="w-full bg-black rounded-[2.5rem] flex items-center justify-center overflow-hidden">
-                  <img src="/profile.png" alt="Ahmad Sharjeel" className="w-full h-full object-cover rounded-[2.5rem]" style={{ aspectRatio: '380/500' }} />
+                  <img src={typedProfile.profileImage} alt={typedProfile.name} className="w-full h-full object-cover rounded-[2.5rem]" style={{ aspectRatio: '380/500' }} />
                 </div>
               </div>
             </motion.div>
@@ -527,22 +476,25 @@ export default function Portfolio() {
             {expTabs[expTab].title}
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {expTabs[expTab].stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="text-center"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-4">
-                  <stat.icon size={48} className="mx-auto text-white" />
-                </div>
-                <h3 className="text-4xl font-black text-white mb-2">{stat.number}</h3>
-                <p className="text-white font-bold tracking-wide">{stat.label}</p>
-              </motion.div>
-            ))}
+            {expTabs[expTab].stats.map((stat, index) => {
+              const StatIcon = iconMap[stat.icon];
+              return (
+                <motion.div
+                  key={stat.label}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="mb-4">
+                    <StatIcon size={48} className="mx-auto text-white" />
+                  </div>
+                  <h3 className="text-4xl font-black text-white mb-2">{stat.number}</h3>
+                  <p className="text-white font-bold tracking-wide">{stat.label}</p>
+                </motion.div>
+              );
+            })}
           </div>
           {/* Swipe Button BELOW content */}
           <div className="flex justify-center mt-10">
@@ -630,32 +582,7 @@ export default function Portfolio() {
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "FYP DEVELOPMENT",
-                description: "Struggling with your Final Year Project? I'll build a complete, well-documented FYP tailored to your requirements — from idea to deployment.",
-              },
-              {
-                title: "WEB DEVELOPMENT",
-                description: "Custom websites and web applications built with modern technologies",
-              },
-              {
-                title: "CUSTOM BOTS",
-                description: "Conversational AI bots and Tasks Automation tailored for your business needs.",
-              },
-              {
-                title: "E-COMMERCE",
-                description: "Complete online stores with payment integration and inventory management",
-              },
-              {
-                title: "UI/UX DESIGN & BRANDING",
-                description: "Beautiful user interfaces, logo design, and marketing materials that convert visitors to customers.",
-              },
-              {
-                title: "CONSULTING",
-                description: "Technical consulting and code reviews to optimize your existing projects",
-              },
-            ].map((service, index) => (
+            {typedServices.map((service, index) => (
               <motion.div
                 key={service.title}
                 className="bg-black p-8 rounded-lg border border-gray-800 hover:border-purple-500 transition-colors cursor-pointer hover:scale-[1.04] hover:-translate-y-2 hover:shadow-xl duration-300"
@@ -673,68 +600,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" ref={projectsRef} className="projects-section pt-16 pb-16 md:pt-24 md:pb-24 px-4 md:px-8 lg:px-16 relative overflow-hidden bg-black">
-        <div className="absolute inset-0"></div>
-        <div className="absolute inset-0">
-          <div className="white-dot absolute top-20 left-20 w-2 h-2 bg-white rounded-full opacity-60"></div>
-          <div className="white-dot absolute top-40 right-32 w-3 h-3 bg-white rounded-full opacity-40"></div>
-          <div className="white-dot absolute bottom-32 left-1/4 w-1 h-1 bg-white rounded-full opacity-80"></div>
-          <div className="white-dot absolute top-60 left-1/2 w-2 h-2 bg-white rounded-full opacity-50"></div>
-          <div className="white-dot absolute bottom-40 right-1/4 w-3 h-3 bg-white rounded-full opacity-30"></div>
-          <div className="white-dot absolute top-32 right-1/3 w-1 h-1 bg-white rounded-full opacity-70"></div>
-          <div className="white-dot absolute bottom-60 left-1/3 w-2 h-2 bg-white rounded-full opacity-60"></div>
-          <div className="white-dot absolute top-80 right-20 w-1 h-1 bg-white rounded-full opacity-90"></div>
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.h2
-            className="text-5xl md:text-7xl font-black tracking-tighter mb-16 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            PROJECTS
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Digital-Banking-Platform",
-                description: "A full-stack web-based banking application developed using PHP, HTML, and SQL. The system implements secure user authentication, account management, and database integration to handle financial records efficiently.",
-                link: "https://github.com/i-ahmad615/Digital-Banking-Platform", // TODO: add your project link here
-              },
-              {
-                title: "Lexical Analyzer",
-                description: "A browser-based lexical analyzer that tokenizes source code, removes comments, categorizes tokens, and reports precise lexical errors in real time.",
-                link: "https://github.com/i-ahmad615/Lexical-Analyzer", // TODO: add your project link here
-              },
-              {
-                title: "Candy Crush Clone",
-                description: "A web-based match-three puzzle game developed using vanilla JS, implementing grid logic, tile matching algorithms, score tracking, and interactive UI mechanics.",
-                link: "https://github.com/i-ahmad615/candy-crush-game", // TODO: add your project link here
-              },
-              {
-                title: "NexHire - Freelancers Marketplace",
-                description: "A full-stack platform connecting freelancers and clients, with project listings, bidding, chats, and secure payments built using HTML, CSS, JavaScript, PHP and MSSQL.",
-                link: "https://drive.google.com/file/d/1j8YniitznZDIJzMD122uiU7yU74GolkK/view?usp=sharing", // TODO: add your project link here
-              },
-              {
-                title: "Open Source Navigator",
-                description: "AI-powered GitHub recommendation system that matches users with relevant open-source repositories and beginner issues using automated API workflows in n8n.",
-                link: "/contact", // TODO: add your project link here
-              },
-              {
-                title: "LearnovaX – AI-Powered Academic Assistant",
-                description: "Developed an interactive AI chatbot using Streamlit and Chainlit to assist students with concept clarification, academic guidance, and intelligent study material discovery.",
-                link: "/contact", // TODO: add your project link here
-              },
-            ].map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProjectsSection projects={typedProjects} />
 
       {/* Testimonials Section */}
       <section id="testimonials" className="pt-16 pb-16 md:pt-24 md:pb-24 px-4 md:px-8 lg:px-16 relative overflow-hidden">
@@ -751,27 +617,7 @@ export default function Portfolio() {
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Muhammad Ibrahim",
-                role: "Senior Web Developer, Noble Bit Systems",
-                text: "Ahmad delivered an exceptional Shopify store that exceeded our expectations. His attention to detail and creative vision is unmatched. Rarely do you find a developer who combines technical skills with such a strong design sense.",
-                rating: 5,
-              },
-              {
-                name: "Omer Saeed",
-                role: "Lecturer, Department of Computer Science",
-                text: "Ahmad has consistently stood out as one of the most hardworking and creative students in class. His ability to quickly grasp new technologies and apply them in real projects is commendable. I have no doubt he will make a strong mark in the industry.",
-                rating: 4,
-              },
-              {
-                name: "Nauman Sajjad",
-                role: "Regional Round Topper — Huawei ICT Global Competition",
-                text: "Ahmad is one of the most dedicated and talented developers I have had the pleasure of studying alongside. His projects are always clean, well-structured, and impressive. He has a natural ability to turn complex ideas into working applications effortlessly.",
-                rating: 5,
-              },
-              
-            ].map((testimonial, index) => (
+            {typedTestimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
                 className="bg-black p-5 sm:p-8 rounded-lg border border-gray-800 hover:border-purple-500 transition-colors hover-lift cursor-pointer w-full overflow-hidden"
@@ -902,7 +748,7 @@ function TabSwitcher() {
       {/* Tab Content with smooth fade/slide */}
       <div className="w-full mt-12">
         <AnimatePresence mode="wait">
-          <TabContent key={skillTab} skillTab={skillTab} />
+          <TabContent key={skillTab} skillTab={skillTab} skills={typedSkills} />
         </AnimatePresence>
       </div>
     </div>
@@ -910,7 +756,7 @@ function TabSwitcher() {
 }
 
 // TabContent component for animated tab panels
-function TabContent({ skillTab }: { skillTab: number }) {
+function TabContent({ skillTab, skills }: { skillTab: number; skills: Skills }) {
   return (
     <motion.div
       key={skillTab}
@@ -921,53 +767,42 @@ function TabContent({ skillTab }: { skillTab: number }) {
     >
       {skillTab === 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 w-full">
-          {[
-            { icon: Code, title: "WEB", skills: ["HTML", "CSS", "JavaScript", "PHP"] },
-            { icon: Palette, title: "DESIGN", skills: ["UI/UX", "Figma", "Graphic", "Prototyping"] },
-            { icon: Zap, title: "AI/ML", skills: ["N8N", "Pandas", "Numpy", "Matplotlib"] },
-            { icon: Globe, title: "Languages", skills: ["C/C++", "Python", "SQL", "Arduino"] },
-          ].map((category, index) => (
-            <motion.div
-              key={category.title}
-              className="text-center bg-black/80 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 w-full"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="mb-6">
-                <category.icon size={52} className="mx-auto text-purple-400" />
-              </div>
-              <h3 className="text-2xl font-black tracking-wide mb-4 text-white">{category.title}</h3>
-              <div className="space-y-3">
-                {category.skills.map((skill) => (
-                  <div key={skill} className="relative">
-                    <div className="text-base text-gray-200 mb-1 font-semibold tracking-wide">{skill}</div>
-                    <div className="w-full bg-gray-700 h-1.5 rounded-full">
-                      <div
-                        className="skills-progress h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
-                        style={{ width: "100%" }}
-                      ></div>
+          {skills.technical.map((category, index) => {
+            const CategoryIcon = iconMap[category.icon];
+            return (
+              <motion.div
+                key={category.title}
+                className="text-center bg-black/80 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 w-full"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6">
+                  <CategoryIcon size={52} className="mx-auto text-purple-400" />
+                </div>
+                <h3 className="text-2xl font-black tracking-wide mb-4 text-white">{category.title}</h3>
+                <div className="space-y-3">
+                  {category.skills.map((skill) => (
+                    <div key={skill} className="relative">
+                      <div className="text-base text-gray-200 mb-1 font-semibold tracking-wide">{skill}</div>
+                      <div className="w-full bg-gray-700 h-1.5 rounded-full">
+                        <div
+                          className="skills-progress h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
+                          style={{ width: "100%" }}
+                        ></div>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       )}
       {skillTab === 1 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {[
-            'Communication & Presentation',
-            'Problem Solving',
-            'Leadership & Teamwork',
-            'Time Management',
-            'Creativity',
-            'Innovation',
-            'Adaptability',
-            'Leadership',
-          ].map((skill, index) => (
+          {skills.soft.map((skill, index) => (
             <motion.div
               key={skill}
               className="bg-black/80 border border-blue-600 rounded-2xl p-7 text-center text-white font-bold text-lg shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.04] hover:-translate-y-2 hover:border-blue-400 hover:shadow-xl"
@@ -983,22 +818,7 @@ function TabContent({ skillTab }: { skillTab: number }) {
       )}
       {skillTab === 2 && (
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
-          {[
-            'MS Office',
-            'Git',
-            'GitHub',
-            'VS Code',
-            'Emu 8086',
-            'Colab',
-            'Figma',
-            'Canva',
-            'Capcut',
-            'Power BI',
-            'Jira',
-            'Crew AI',
-            'Pencil AI',
-            'OPEN AI',
-          ].map((tool, index) => (
+          {skills.tools.map((tool, index) => (
             <motion.div
               key={tool}
               className="bg-black/80 border border-purple-600 rounded-2xl p-5 text-center text-white font-semibold text-base shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.04] hover:-translate-y-2 hover:border-purple-400 hover:shadow-xl"
@@ -1016,56 +836,3 @@ function TabContent({ skillTab }: { skillTab: number }) {
   );
 }
 
-function ProjectCard({ project, index }: { project: { title: string; description: string; link: string }, index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    // Max tilt angle
-    const maxTilt = 15;
-    const tiltX = ((y - centerY) / centerY) * maxTilt;
-    const tiltY = ((x - centerX) / centerX) * maxTilt;
-    setTilt({ x: tiltX, y: tiltY });
-  }
-
-  function handleMouseLeave() {
-    setTilt({ x: 0, y: 0 });
-  }
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="group relative flex flex-col bg-gradient-to-br from-white/5 to-black/60 border border-gray-800 rounded-2xl shadow-xl px-8 pt-8 pb-6 transition-all duration-300 hover:shadow-[0_8px_40px_0_rgba(162,89,247,0.18)] hover:-translate-y-2 hover:scale-[1.04] cursor-pointer min-h-[280px]"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
-      viewport={{ once: true }}
-      style={{
-        transform: `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1)`,
-        willChange: 'transform',
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="flex-1 flex flex-col items-start text-left w-full">
-        <h3 className="text-xl font-extrabold tracking-tight mb-3 text-white drop-shadow-lg leading-tight">{project.title}</h3>
-        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full mt-auto block text-center py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold text-base shadow-md hover:from-purple-600 hover:to-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 active:scale-95"
-        >
-          View Project
-        </a>
-      </div>
-    </motion.div>
-  );
-}

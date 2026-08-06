@@ -1,0 +1,39 @@
+{
+  "technical": [
+    { "icon": "Code", "title": "WEB", "skills": ["HTML", "CSS", "JavaScript", "PHP"], "proficiency": "Strong" },
+    { "icon": "Palette", "title": "DESIGN", "skills": ["UI/UX", "Figma", "Graphic", "Prototyping"], "proficiency": "Intermediate" },
+    { "icon": "Zap", "title": "AI/ML", "skills": ["N8N", "Pandas", "Numpy", "Matplotlib"], "proficiency": "Strong" },
+    { "icon": "Globe", "title": "Languages", "skills": ["C/C++", "Python", "SQL", "Arduino"], "proficiency": "Strong" }
+  ],
+  "soft": [
+    "Communication & Presentation",
+    "Problem Solving",
+    "Leadership & Teamwork",
+    "Time Management",
+    "Creativity",
+    "Innovation",
+    "Adaptability",
+    "Leadership"
+  ],
+  "tools": [
+    "MS Office",
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Emu 8086",
+    "Colab",
+    "Figma",
+    "Canva",
+    "Capcut",
+    "Power BI",
+    "Jira",
+    "Crew AI",
+    "Pencil AI",
+    "OPEN AI"
+  ],
+  "additionalTechnologies": {
+    "backend": ["Python", "FastAPI", "SQL", "SQLite"],
+    "frontend": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "ai": ["Google Gemini", "OpenAI APIs", "n8n Automation"]
+  }
+}

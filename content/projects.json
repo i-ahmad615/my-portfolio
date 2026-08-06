@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Digital-Banking-Platform",
+    "description": "A full-stack web-based banking application developed using PHP, HTML, and SQL. The system implements secure user authentication, account management, and database integration to handle financial records efficiently.",
+    "link": "https://github.com/i-ahmad615/Digital-Banking-Platform",
+    "summary": "A secure full-stack banking application handling authentication and financial records.",
+    "technologies": ["PHP", "HTML", "SQL", "MySQL"],
+    "category": "Full-Stack Web Development",
+    "highlights": [
+      "Secure user authentication",
+      "Account management system",
+      "Financial record database integration"
+    ],
+    "difficulty": "intermediate",
+    "keywords": ["banking", "fintech", "authentication", "database", "full-stack", "php", "sql"],
+    "github": "https://github.com/i-ahmad615/Digital-Banking-Platform",
+    "coverImages": [
+      "/assets/projects/digital-banking-platform-1.png",
+      "/assets/projects/digital-banking-platform-2.png",
+      "/assets/projects/digital-banking-platform-3.png"
+    ]
+  },
+  {
+    "title": "Lexical Analyzer",
+    "description": "A browser-based lexical analyzer that tokenizes source code, removes comments, categorizes tokens, and reports precise lexical errors in real time.",
+    "link": "https://github.com/i-ahmad615/Lexical-Analyzer",
+    "summary": "A browser-based compiler tool that tokenizes source code and reports lexical errors in real time.",
+    "technologies": ["JavaScript", "HTML", "CSS"],
+    "category": "Compiler Design / Developer Tools",
+    "highlights": [
+      "Real-time source code tokenization",
+      "Comment removal and token categorization",
+      "Precise lexical error reporting"
+    ],
+    "difficulty": "intermediate",
+    "keywords": ["compiler", "lexical analysis", "tokenizer", "developer tools", "computer science fundamentals"],
+    "github": "https://github.com/i-ahmad615/Lexical-Analyzer",
+    "coverImages": [
+      "/assets/projects/lexical-analyzer-1.png",
+      "/assets/projects/lexical-analyzer-2.png",
+      "/assets/projects/lexical-analyzer-3.png"
+    ]
+  },
+  {
+    "title": "Candy Crush Clone",
+    "description": "A web-based match-three puzzle game developed using vanilla JS, implementing grid logic, tile matching algorithms, score tracking, and interactive UI mechanics.",
+    "link": "https://github.com/i-ahmad615/candy-crush-game",
+    "summary": "A match-three puzzle game built with vanilla JavaScript, grid logic, and score tracking.",
+    "technologies": ["JavaScript", "HTML", "CSS"],
+    "category": "Game Development",
+    "highlights": [
+      "Grid-based tile matching algorithm",
+      "Score tracking system",
+      "Interactive UI mechanics"
+    ],
+    "difficulty": "beginner",
+    "keywords": ["game development", "javascript", "algorithms", "ui"],
+    "github": "https://github.com/i-ahmad615/candy-crush-game",
+    "coverImages": [
+      "/assets/projects/candy-crush-clone-1.png",
+      "/assets/projects/candy-crush-clone-2.png",
+      "/assets/projects/candy-crush-clone-3.png"
+    ]
+  },
+  {
+    "title": "NexHire - Freelancers Marketplace",
+    "description": "A full-stack platform connecting freelancers and clients, with project listings, bidding, chats, and secure payments built using HTML, CSS, JavaScript, PHP and MSSQL.",
+    "link": "https://drive.google.com/file/d/1j8YniitznZDIJzMD122uiU7yU74GolkK/view?usp=sharing",
+    "summary": "A full-stack freelance marketplace with bidding, real-time chat, and secure payments.",
+    "technologies": ["HTML", "CSS", "JavaScript", "PHP", "MSSQL"],
+    "category": "Full-Stack Web Development",
+    "highlights": [
+      "Project listings and bidding system",
+      "Real-time chat between freelancers and clients",
+      "Secure payment integration"
+    ],
+    "difficulty": "advanced",
+    "keywords": ["marketplace", "freelance platform", "full-stack", "payments", "chat system", "enterprise"],
+    "coverImages": [
+      "/assets/projects/nexhire-marketplace-1.png",
+      "/assets/projects/nexhire-marketplace-2.png",
+      "/assets/projects/nexhire-marketplace-3.png"
+    ]
+  },
+  {
+    "title": "Open Source Navigator",
+    "description": "AI-powered GitHub recommendation system that matches users with relevant open-source repositories and beginner issues using automated API workflows in n8n.",
+    "link": "/contact",
+    "summary": "An AI-powered recommendation system matching users to open-source repositories via automated n8n workflows.",
+    "technologies": ["n8n", "GitHub API", "AI/Automation Workflows"],
+    "category": "AI & Automation",
+    "highlights": [
+      "AI-powered repository matching",
+      "Automated API workflows built in n8n",
+      "Beginner-friendly issue recommendations"
+    ],
+    "difficulty": "advanced",
+    "keywords": ["ai", "automation", "n8n", "github", "recommendation system", "open source"],
+    "coverImages": [
+      "/assets/projects/open-source-navigator-1.png",
+      "/assets/projects/open-source-navigator-2.png",
+      "/assets/projects/open-source-navigator-3.png"
+    ]
+  },
+  {
+    "title": "LearnovaX",
+    "description": "Developed an interactive AI chatbot using Streamlit and Chainlit to assist students with concept clarification, academic guidance, and intelligent study material discovery.",
+    "link": "/contact",
+    "summary": "An interactive AI chatbot that helps students with concept clarification and study material discovery.",
+    "technologies": ["Python", "Streamlit", "Chainlit", "AI/LLM"],
+    "category": "AI & Automation",
+    "highlights": [
+      "Interactive AI chatbot for students",
+      "Concept clarification and academic guidance",
+      "Intelligent study material discovery"
+    ],
+    "difficulty": "advanced",
+    "keywords": ["ai", "chatbot", "llm", "education technology", "python"],
+    "coverImages": [
+      "/assets/projects/learnovax-ai-assistant-1.png",
+      "/assets/projects/learnovax-ai-assistant-2.png",
+      "/assets/projects/learnovax-ai-assistant-3.png"
+    ]
+  },
+  {
+    "title": "Firewall Automation",
+    "description": "Automated cybersecurity incident response by monitoring security alert emails, validating attack information, and automatically blocking malicious IP addresses through Sophos Firewall integration. Built during Ahmad's AI Engineer Internship at Century Paper & Board Mills (CPBM).",
+    "link": "/contact",
+    "summary": "An automated cybersecurity system that detects and blocks malicious IPs in real time via Sophos Firewall integration.",
+    "technologies": ["Python", "Sophos Firewall API", "Email Parsing Automation"],
+    "category": "Cybersecurity Automation",
+    "highlights": [
+      "Automated monitoring of security alert emails",
+      "Validated attack information before acting",
+      "Automatically blocked malicious IP addresses via Sophos Firewall integration",
+      "Built during a real internship, deployed for enterprise network security"
+    ],
+    "difficulty": "advanced",
+    "keywords": ["cybersecurity", "firewall", "automation", "incident response", "network security", "enterprise", "internship", "sophos"],
+    "coverImages": [
+      "/assets/projects/firewall-automation-1.png",
+      "/assets/projects/firewall-automation-2.png",
+      "/assets/projects/firewall-automation-3.png"
+    ]
+  }
+]

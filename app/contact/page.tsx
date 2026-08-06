@@ -6,6 +6,10 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send, ArrowLeft, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
+import profile from "../../content/profile.json"
+import type { Profile } from "../../types/content"
+
+const typedProfile = profile as Profile
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -135,10 +139,10 @@ export default function ContactPage() {
             >
               <div className="mb-12 text-center lg:text-left">
                 <div className="w-32 h-32 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center overflow-hidden">
-                  <img src="/profile.png" alt="Ahmad Sharjeel" className="w-28 h-28 object-cover rounded-full" />
+                  <img src={typedProfile.profileImage} alt={typedProfile.name} className="w-28 h-28 object-cover rounded-full" />
                 </div>
-                <h2 className="text-3xl font-black mb-2">Ahmad Sharjeel</h2>
-                <p className="text-purple-300 text-lg">Creative Developer & Designer</p>
+                <h2 className="text-3xl font-black mb-2">{typedProfile.name}</h2>
+                <p className="text-purple-300 text-lg">{typedProfile.tagline}</p>
               </div>
 
               <div className="space-y-6">
@@ -149,7 +153,7 @@ export default function ContactPage() {
                   <Mail className="text-purple-400" size={24} />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <p className="text-purple-200">ahmadsharjeel615@gmail.com</p>
+                    <p className="text-purple-200">{typedProfile.email}</p>
                   </div>
                 </motion.div>
 
@@ -160,7 +164,7 @@ export default function ContactPage() {
                   <Phone className="text-purple-400" size={24} />
                   <div>
                     <p className="font-semibold">Phone</p>
-                    <p className="text-purple-200">+92 326 0190421</p>
+                    <p className="text-purple-200">{typedProfile.phone}</p>
                   </div>
                 </motion.div>
 
@@ -171,7 +175,7 @@ export default function ContactPage() {
                   <MapPin className="text-purple-400" size={24} />
                   <div>
                     <p className="font-semibold">Location</p>
-                    <p className="text-purple-200">Lahore, Pakistan</p>
+                    <p className="text-purple-200">{typedProfile.location}</p>
                   </div>
                 </motion.div>
               </div>
@@ -180,7 +184,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold mb-4 text-center lg:text-left">Follow Me</h3>
                 <div className="flex gap-4 justify-center lg:justify-start">
                   <motion.a
-                    href="https://github.com/i-ahmad615"
+                    href={typedProfile.social.github}
                     className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-purple-600 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -188,7 +192,7 @@ export default function ContactPage() {
                     <Github size={24} />
                   </motion.a>
                   <motion.a
-                    href="https://www.linkedin.com/in/i-ahmad615/"
+                    href={typedProfile.social.linkedinContact}
                     className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-blue-600 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -196,7 +200,7 @@ export default function ContactPage() {
                     <Linkedin size={24} />
                   </motion.a>
                   <motion.a
-                    href="https://wa.me/923260190421?text=Hi%20Ahmad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20project%20with%20you!"
+                    href={typedProfile.social.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-black/30 rounded-lg backdrop-blur-sm hover:bg-green-600 transition-colors"

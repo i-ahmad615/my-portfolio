@@ -1,0 +1,25 @@
+{
+  "title": "EXPERIENCE",
+  "stats": [
+    { "icon": "Calendar", "number": "1+", "label": "YEARS EXPERIENCE" },
+    { "icon": "Code", "number": "10+", "label": "PROJECTS COMPLETED" },
+    { "icon": "Users", "number": "3+", "label": "HAPPY CLIENTS" },
+    { "icon": "Award", "number": "1+", "label": "AWARDS WON" }
+  ],
+  "positions": [
+    {
+      "title": "AI Engineer Intern",
+      "organization": "Century Paper & Board Mills (CPBM)",
+      "period": "Internship",
+      "responsibilities": [
+        "Cybersecurity automation and incident response",
+        "AI-driven network monitoring solutions"
+      ],
+      "technologies": ["Python", "Sophos Firewall API", "Automation", "AI/ML", "Network Monitoring"],
+      "achievements": [
+        "Built a firewall automation system that monitored security alert emails, validated attack information, and automatically blocked malicious IP addresses via Sophos Firewall integration",
+        "Contributed to AI-driven network monitoring solutions for enterprise infrastructure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "EDUCATION",
+  "stats": [
+    { "icon": "Calendar", "number": "2027", "label": "GRADUATION YEAR" },
+    { "icon": "Code", "number": "BS", "label": "COMPUTER SCIENCE" },
+    { "icon": "Users", "number": "3.55", "label": "GPA" },
+    { "icon": "Award", "number": "2", "label": "HONORS" }
+  ],
+  "details": {
+    "institution": "Lahore Garrison University",
+    "degree": "BS Computer Science",
+    "cgpa": "3.55",
+    "graduationYear": "2027",
+    "highlights": [
+      "Maintained a strong academic record throughout the degree",
+      "Earned 2 academic honors",
+      "Completed the degree alongside professional AI certifications and a real-world internship"
+    ]
+  }
+}

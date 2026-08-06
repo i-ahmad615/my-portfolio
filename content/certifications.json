@@ -1,0 +1,17 @@
+{
+  "title": "CERTIFICATION",
+  "stats": [
+    { "icon": "Award", "number": "5+", "label": "CERTIFICATES" },
+    { "icon": "Code", "number": "5+", "label": "ONLINE COURSES" },
+    { "icon": "Users", "number": "10+", "label": "SEMINARS ATTENDED" },
+    { "icon": "Calendar", "number": "2026", "label": "LAST UPDATED" }
+  ],
+  "items": [
+    {
+      "name": "Google AI Professional Certificate",
+      "issuer": "Google",
+      "date": "",
+      "skillsGained": ["AI technologies", "Modern development workflows"]
+    }
+  ]
+}
