@@ -633,7 +633,7 @@ export default function Portfolio() {
             {[
               {
                 title: "PROJECT DEVELOPMENT",
-                description: "Turn your concepts into reality. I will build a complete, production-ready, and well-documented software project tailored to your exact business or personal requirements—handling everything from initial architecture to final deployment.",
+                description: "From idea to deployment. I build complete production-ready software projects tailored to your exact requirements.",
               },
               {
                 title: "WEB DEVELOPMENT",
