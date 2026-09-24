@@ -632,8 +632,8 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "FYP DEVELOPMENT",
-                description: "Struggling with your Final Year Project? I'll build a complete, well-documented FYP tailored to your requirements — from idea to deployment.",
+                title: "PROJECT DEVELOPMENT",
+                description: "Turn your concepts into reality. I will build a complete, production-ready, and well-documented software project tailored to your exact business or personal requirements—handling everything from initial architecture to final deployment.",
               },
               {
                 title: "WEB DEVELOPMENT",
